@@ -37,8 +37,7 @@ public class Main {
                 4. Se transaktion dagsvis
                 """;
         System.out.println(output);
-        int newChoice = scanner.nextInt();
-        return newChoice;
+        return scanner.nextInt();
     }
 
     private static int newChoiceInk() {
@@ -49,8 +48,7 @@ public class Main {
                 4. Se inkomst dagsvis
                 """;
         System.out.println(output);
-        int newChoiceInk = scanner.nextInt();
-        return newChoiceInk;
+        return scanner.nextInt();
     }
 
 

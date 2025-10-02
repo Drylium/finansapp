@@ -13,10 +13,6 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
     public List<Transaction> getTransactions() {
         return transactions;
     }
@@ -24,5 +20,9 @@ public class Account {
     public void addTransaction(Transaction transaction) {
         this.balance = this.balance + transaction.getSum();
         this.transactions.add(transaction);
+    }
+
+    public void updateBalance() {
+        this.balance = this.transactions.stream().mapToDouble(Transaction::getSum).sum();
     }
 }

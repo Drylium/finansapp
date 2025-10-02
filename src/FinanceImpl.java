@@ -23,7 +23,6 @@ public class FinanceImpl implements Finance {
             account.addTransaction(transaction);
             System.out.printf("You have added transcation with id %d%n", transaction.getId());
             System.out.printf("Nuvarande kontobalans: %s%n", account.getBalance());
-            return;
         } catch (InputMismatchException e) {
             System.out.println("Invalid transcationtype");
         }
@@ -36,6 +35,7 @@ public class FinanceImpl implements Finance {
             System.out.println("Ange ID på transaktion du vill ta bort ");
             int id = Main.scanner.nextInt();
             account.getTransactions().removeIf(transaction -> transaction.getId() == id);
+            account.updateBalance();
             System.out.println("Transaktion borttagen");
 
         } catch (InputMismatchException e) {

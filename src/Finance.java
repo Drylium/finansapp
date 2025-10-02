@@ -1,25 +1,25 @@
 import java.util.Date;
 
 public interface Finance {
-    public void add(Account account);
+    void add(Account account);
 
-    public void delete(Account account);
+    void delete(Account account);
 
-    public void viewBalance(Account account);
+    void viewBalance(Account account);
 
-    public void viewSpendingsByYear(Account account);
+    void viewSpendingsByYear(Account account);
 
-    public void viewSpendingsByMonth(Account account);
+    void viewSpendingsByMonth(Account account);
 
-    public void viewSpendingsByWeek(Account account);
+    void viewSpendingsByWeek(Account account);
 
-    public void viewSpendingsByDay(Account account);
+    void viewSpendingsByDay(Account account);
 
-    public void viewIncomeByYear(Account account);
+    void viewIncomeByYear(Account account);
 
-    public void viewIncomeByMonth(Account account);
+    void viewIncomeByMonth(Account account);
 
-    public void viewIncomeByWeek(Account account);
+    void viewIncomeByWeek(Account account);
 
-    public void viewIncomeByDay(Account account);
+    void viewIncomeByDay(Account account);
 }
