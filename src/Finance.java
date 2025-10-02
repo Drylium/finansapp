@@ -1,4 +1,3 @@
-import java.util.Date;
 
 public interface Finance {
     void add(Account account);

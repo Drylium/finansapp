@@ -30,7 +30,6 @@ public class FinanceImpl implements Finance {
 
     @Override
     public void delete(Account account) {
-        // TODO: Lista ut vilket ID som ska bort
         try {
             System.out.println("Ange ID på transaktion du vill ta bort ");
             int id = Main.scanner.nextInt();
