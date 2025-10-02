@@ -46,7 +46,7 @@ public class FinanceImpl implements Finance {
 
     @Override
     public void viewBalance(Account account) {
-        System.out.printf("Ditt konto: %s%n ", account.getBalance());
+        System.out.printf("Ditt konto: %s%n", account.getBalance());
 
     }
 
