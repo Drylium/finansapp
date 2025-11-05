@@ -22,3 +22,5 @@ public interface Finance {
 
     void viewIncomeByDay(Account account);
 }
+
+//Abstractions
