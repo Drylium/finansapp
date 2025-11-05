@@ -8,7 +8,7 @@ import java.util.InputMismatchException;
 public class FinanceImpl implements Finance {
     // , String type, double sum, Date date
     @Override
-    public void add(Account account) {
+    public void add(Account account) {  //Funktion att lägga till saldo, både positivt och negativt
         try {
             System.out.println("Ange transaktionstyp: ");
             String type = Main.scanner.next();
@@ -29,7 +29,7 @@ public class FinanceImpl implements Finance {
     }
 
     @Override
-    public void delete(Account account) {
+    public void delete(Account account) { //för att ta bort en transaktion genom att ange det ID den fick
         try {
             System.out.println("Ange ID på transaktion du vill ta bort ");
             int id = Main.scanner.nextInt();
@@ -44,13 +44,13 @@ public class FinanceImpl implements Finance {
     }
 
     @Override
-    public void viewBalance(Account account) {
+    public void viewBalance(Account account) { //ta fram saldot
         System.out.printf("Ditt konto: %s%n", account.getBalance());
 
     }
 
     @Override
-    public void viewSpendingsByYear(Account account) {
+    public void viewSpendingsByYear(Account account) { //få fram årlig spendering
         try {
             System.out.println("Ange år (yyyy):");
             String years = Main.scanner.next();

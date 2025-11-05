@@ -10,7 +10,7 @@ public class Main {
     static boolean keepRunning = true;
 
     public static void main(String[] args) {
-        while (keepRunning) {
+        while (keepRunning) {  //Kör programmet tills du väljer att avsluta
             choices();
         }
     }
