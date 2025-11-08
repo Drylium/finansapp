@@ -1,23 +1,28 @@
 import java.awt.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.time.temporal.WeekFields;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class FinanceImpl implements Finance {
+    private final Scanner scanner;
+
+    public FinanceImpl(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
     // , String type, double sum, Date date
     @Override
     public void add(Account account) {  //Funktion att lägga till saldo, både positivt och negativt
         try {
             System.out.println("Ange transaktionstyp: ");
-            String type = Main.scanner.next();
+            String type = scanner.next();
 
             System.out.println("Ange datum: ");
-            LocalDate date = LocalDate.parse(Main.scanner.next());
+            LocalDate date = LocalDate.parse(scanner.next());
 
             System.out.println("Ange summa (negativt för utgifter): ");
-            double sum = Main.scanner.nextDouble();
+            double sum = scanner.nextDouble();
 
             Transaction transaction = new Transaction(type, date, sum);
             account.addTransaction(transaction);
@@ -32,7 +37,7 @@ public class FinanceImpl implements Finance {
     public void delete(Account account) { //för att ta bort en transaktion genom att ange det ID den fick
         try {
             System.out.println("Ange ID på transaktion du vill ta bort ");
-            int id = Main.scanner.nextInt();
+            int id = scanner.nextInt();
             account.getTransactions().removeIf(transaction -> transaction.getId() == id);
             account.updateBalance();
             System.out.println("Transaktion borttagen");
@@ -53,7 +58,7 @@ public class FinanceImpl implements Finance {
     public void viewSpendingsByYear(Account account) { //få fram årlig spendering
         try {
             System.out.println("Ange år (yyyy):");
-            String years = Main.scanner.next();
+            String years = scanner.next();
             for (Transaction transaction : account.getTransactions()) {
                 String transactionDate = transaction.getDate().toString();
                 if (transactionDate.contains(years)) {
@@ -72,7 +77,7 @@ public class FinanceImpl implements Finance {
     public void viewSpendingsByMonth(Account account) {
         try {
             System.out.println("Ange år och månad (yyyy-mm):");
-            String months = Main.scanner.next();
+            String months = scanner.next();
             for (Transaction transaction : account.getTransactions()) {
                 String transactionMonth = transaction.getDate().toString();
                 if (transactionMonth.contains(months)) {
@@ -90,9 +95,9 @@ public class FinanceImpl implements Finance {
     public void viewSpendingsByWeek(Account account) {
         try {
             System.out.println("Ange år (YYYY):");
-            String years = Main.scanner.next();
+            String years = scanner.next();
             System.out.println("Ange vecka (VV):");
-            String weeks = Main.scanner.next();
+            String weeks = scanner.next();
             for (Transaction transaction : account.getTransactions()) {
                 String transactionDate = transaction.getDate().toString();
                 if (transactionDate.contains(years)) {
@@ -114,7 +119,7 @@ public class FinanceImpl implements Finance {
     public void viewSpendingsByDay(Account account) {
         try {
             System.out.println("Ange år,månad och dag (yyyy-mm-dd):");
-            String days = Main.scanner.next();
+            String days = scanner.next();
             for (Transaction transaction : account.getTransactions()) {
                 String transactionMonth = transaction.getDate().toString();
                 if (transactionMonth.contains(days)) {
@@ -133,7 +138,7 @@ public class FinanceImpl implements Finance {
     public void viewIncomeByYear(Account account) {
         try {
             System.out.println("Ange år (yyyy):");
-            String years = Main.scanner.next();
+            String years = scanner.next();
             for (Transaction transaction : account.getTransactions()) {
                 String transactionDate = transaction.getDate().toString();
                 if (transactionDate.contains(years)) {
@@ -152,7 +157,7 @@ public class FinanceImpl implements Finance {
     public void viewIncomeByMonth(Account account) {
         try {
             System.out.println("Ange år och månad (yyyy-mm):");
-            String months = Main.scanner.next();
+            String months = scanner.next();
             for (Transaction transaction : account.getTransactions()) {
                 String transactionDate = transaction.getDate().toString();
                 if (transactionDate.contains(months)) {
@@ -171,9 +176,9 @@ public class FinanceImpl implements Finance {
     public void viewIncomeByWeek(Account account) {
         try {
             System.out.println("Ange år (YYYY):");
-            String years = Main.scanner.next();
+            String years = scanner.next();
             System.out.println("Ange vecka (VV):");
-            String weeks = Main.scanner.next();
+            String weeks = scanner.next();
             for (Transaction transaction : account.getTransactions()) {
                 String transactionDate = transaction.getDate().toString();
                 if (transactionDate.contains(years)) {
@@ -195,7 +200,7 @@ public class FinanceImpl implements Finance {
     public void viewIncomeByDay(Account account) {
         try {
             System.out.println("Ange år, månad och dag(yyyy-mm-dd):");
-            String days = Main.scanner.next();
+            String days = scanner.next();
             for (Transaction transaction : account.getTransactions()) {
                 String transactionDate = transaction.getDate().toString();
                 if (transactionDate.contains(days)) {
